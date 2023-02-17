@@ -1,10 +1,10 @@
-#Include <stdio.h>
+#Include < stdio.h >
 /**
- * Main A program that print a line with puts function
- * return: 0(success)
+ * main - A program that prints a line with puts function
+ * Return: 0 (success)
  */
-int main(void)
+int main(void);
 {
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
