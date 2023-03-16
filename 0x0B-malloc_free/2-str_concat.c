@@ -1,71 +1,46 @@
 #include "main.h"
-
 #include <stdlib.h>
 
 /**
- * str_concat - get ends of input and add together for size
+ * string_nconcat - concatenates two strings.
+ * @s1: first string.
+ * @s2: second string.
+ * @n: amount of bytes.
  *
- * @s1: input one to concat
- * @s2: input two to concat
- *
- * Return: concat of s1 and s2
- *
+ * Return: pointer to the allocated memory.
+ * if malloc fails, status value is equal to 98.
  */
-char *str_concat(char *s1, char *s2)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-
-	char *conct;
-
-	int i, ci;
+	char *sout;
+	unsigned int ls1, ls2, lsout, i;
 
 	if (s1 == NULL)
-
 		s1 = "";
 
 	if (s2 == NULL)
-
 		s2 = "";
 
-	i = ci = 0;
+	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
 
-	while (s1[i] != '\0')
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+	if (n > ls2)
+		n = ls2;
 
-		i++;
+	lsout = ls1 + n;
 
-	while (s2[ci] != '\0')
+	sout = malloc(lsout + 1);
 
-		ci++;
-
-	conct = malloc(sizeof(char) * (i + ci + 1));
-
-	if (conct == NULL)
-
+	if (sout == NULL)
 		return (NULL);
 
-	i = ci = 0;
+	for (i = 0; i < lsout; i++)
+		if (i < ls1)
+			sout[i] = s1[i];
+		else
+			sout[i] = s2[i - ls1];
 
-	while (s1[i] != '\0')
+	sout[i] = '\0';
 
-	{
-
-		conct[i] = s1[i];
-
-		i++;
-
-	}
-
-	while (s2[ci] != '\0')
-
-	{
-
-		conct[i] = s2[ci];
-
-		i++, ci++;
-
-	}
-
-	conct[i] = '\0';
-
-	return (conct);
-
+	return (sout);
 }
