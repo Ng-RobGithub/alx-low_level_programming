@@ -3,7 +3,7 @@
 /**
  * clear_bit - sets the value of a bit to 0, at a given index.
  * @n: pointer of an unsigned long int.
- * @index: index of the bit.
+ * @index: index of the bit to set.
  *
  * Return: 1 on success, -1 if it fails.
  */

@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "main.h"
 
+/**
+ * main - check the code
+ *
+ * Return: always 0
+ */
 int main(void)
 {
 	int n;
@@ -14,5 +19,6 @@ int main(void)
 	{
 		printf("Big Endian\n");
 	}
+
 	return (0);
 }
