@@ -2,8 +2,8 @@
 
 /**
  * append_text_to_file - a function that appends text at the end of a file.
- * @filename: filename.
- * @text_content: added content.
+ * @filename: Name of the file.
+ * @text_content: NULL terminated string to add @EOF
  *
  * Return: 1 on success. -1 on failure
  */
