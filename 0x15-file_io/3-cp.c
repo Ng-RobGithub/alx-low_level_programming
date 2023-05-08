@@ -7,7 +7,7 @@ void close_file(int fd);
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
- * @file: The name of the file buffer is storing chars for.
+ * @file: the file buffer name
  *
  * Return: A pointer to the newly-allocated buffer.
  */
