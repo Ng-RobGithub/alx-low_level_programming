@@ -9,26 +9,23 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fn;
-	int nlet;
-	int rWR;
+	FILE *file;
+	size_t content_length, result;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
 
-	fn = open(filename, O_WRONLY | O_APPEND);
-	if (fn == -1)
+	if (text_content == NULL)
+		return (1);
+	file = fopen(filename, "a");
+	if (file == NULL)
 		return (-1);
 
-	if (text_content)
-	{
-		for (nlet = 0; text_content[nlet]; nlet++)
+	content_length = strlen(text_content);
+	result = fwrite(text_content, sizeof(char), content_length, file);
+	fclose(file);
 
-			rWR = write(fn, text_content, nlet);
-
-		if (rWR == -1)
-			return (-1);
-	}
-	close(fn);
+	if (result != content_length)
+		return (-1);
 	return (1);
 }
