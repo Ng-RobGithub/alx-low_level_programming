@@ -38,8 +38,10 @@ void print_error(const char *msg)
 */
 void print_magic(const Elf64_Ehdr *header)
 {
+	int i; /* Declare the loop variable outside the loop */
+
 	printf("Magic: ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x ", header->e_ident[i]);
 	}
@@ -264,14 +266,4 @@ int main(int argc, char *argv[])
 
 	close(fd);
 	return (0);
-}
-/**
- * main - starting
- *
- * Return:0
- */
-int main(void)
-{
-	    printf("Hello, world!\n");
-	    return (0);
 }
