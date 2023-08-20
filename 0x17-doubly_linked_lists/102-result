@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def is_palindrome(num):
-    return str(num) == str(num)[::-1]
+    return (str(num) == str(num)[::-1])
 
 def find_largest_palindrome():
     largest_palindrome = 0
@@ -11,7 +11,7 @@ def find_largest_palindrome():
             if is_palindrome(product) and product > largest_palindrome:
                 largest_palindrome = product
 
-                return largest_palindrome
+                return (largest_palindrome)
 
             result = find_largest_palindrome()
 
