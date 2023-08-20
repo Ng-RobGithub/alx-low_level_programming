@@ -16,4 +16,3 @@ result = largest_palindrome_product()
 
 with open('102-result', 'w') as f:
 f.write(str(result))
-
