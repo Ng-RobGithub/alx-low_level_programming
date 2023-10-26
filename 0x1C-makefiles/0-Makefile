@@ -1,4 +1,10 @@
-school: school.c
-	gcc -o school school.c
+CC := gcc
+CFLAGS := -Wall -Werror -Wextra -pedantic
 
 all: school
+
+school: main.c school.c
+	$(CC) $(CFLAGS) main.c school.c -o school
+
+clean:
+	rm -f school
