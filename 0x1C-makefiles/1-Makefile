@@ -1,13 +1,12 @@
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror -pedantic
-
-SRCS := main.c school.c
-OBJS := $(SRCS:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRC = main.c school.c
 
 all: school
 
-school: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o school
+school: $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o school
 
-clean:
-	rm -f $(OBJS) school
+.PHONY: clean
+	clean:
+	rm -f school
