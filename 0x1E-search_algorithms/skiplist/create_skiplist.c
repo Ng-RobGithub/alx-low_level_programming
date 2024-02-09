@@ -27,7 +27,7 @@ void init_express(skiplist_t *list, size_t size)
 }
 
 /**
- * create_skiplist - Create a singly linked list
+ * create_skiplist - Create a single linked list
  *
  * @array: Pointer to the array used to fill the list
  * @size: Size of the array
@@ -36,23 +36,22 @@ void init_express(skiplist_t *list, size_t size)
  */
 skiplist_t *create_skiplist(int *array, size_t size)
 {
-	if (array == NULL || size == 0)
-		return (NULL);
+	skiplist_t *list;
+	skiplist_t *node;
+	size_t save_size;
 
-	skiplist_t *list = NULL;
-	size_t save_size = size;
-
-	for (size_t i = 0; i < size; i++)
+	list = NULL;
+	save_size = size;
+	while (array && size--)
 	{
-		skiplist_t *node = malloc(sizeof(*node));
-
-		if (node == NULL)
+		node = malloc(sizeof(*node));
+		if (!node)
 		{
 			free_skiplist(list);
 			return (NULL);
 		}
-		node->n = array[i];
-		node->index = i;
+		node->n = array[size];
+		node->index = size;
 		node->express = NULL;
 		node->next = list;
 		list = node;
