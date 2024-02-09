@@ -17,20 +17,15 @@
 int linear_search(int *array, size_t size, int value)
 {
 	size_t i;
-	char buffer[1024];
 
 	if (array == NULL)
 		return (-1);
 
 	for (i = 0; i < size; i++)
 	{
-		sprintf(buffer, "Value checked array[%ld] = [%d]\n", i, array[i]);
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		if (array[i] == value)
-		{
-			write(1, buffer, strlen(buffer));
 			return (i);
-		}
-		write(1, buffer, strlen(buffer));
 	}
 
 	return (-1);
